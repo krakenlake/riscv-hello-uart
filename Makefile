@@ -8,7 +8,7 @@ OBJCOPY = $(ARCH)-objcopy
 all: clean hello.img
 
 hello.img: hello.elf
-	$(OBJCOPY) hello.elf -I binary hello.img
+	$(OBJCOPY) -O binary hello.elf hello.img
 
 hello.elf: hello.o link.ld Makefile
 	$(LD) -T link.ld --no-warn-rwx-segments -o hello.elf hello.o
